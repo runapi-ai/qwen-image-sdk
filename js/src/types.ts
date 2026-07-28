@@ -1,4 +1,4 @@
-import type { AsyncTaskStatus } from '@runapi.ai/core';
+import type { AsyncTaskStatus, TaskBillingResponse, TaskResponse } from '@runapi.ai/core';
 
 /** All Qwen Image model variants, each dedicated to a single operation type. */
 export type QwenImageModel = 'qwen-image-edit-image' | 'qwen-image-text-to-image' | 'qwen-image-remix-image';
@@ -58,7 +58,7 @@ export interface EditImageParams {
   callback_url?: string;
 }
 
-export interface TaskCreateResponse {
+export interface TaskCreateResponse extends TaskBillingResponse {
   id: string;
 }
 
@@ -69,7 +69,7 @@ export interface Image {
 }
 
 /** Shared task result for all Qwen Image image operations. */
-export interface ImageTaskResponse {
+export interface ImageTaskResponse extends TaskResponse {
   id: string;
   status: AsyncTaskStatus;
   /** Output images, populated once the task completes successfully. */

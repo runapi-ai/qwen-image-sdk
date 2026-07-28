@@ -1,5 +1,7 @@
 package qwenimage
 
+import "github.com/runapi-ai/core-sdk/go/core"
+
 // TaskStatus represents the lifecycle state of an async task.
 type TaskStatus string
 
@@ -40,6 +42,7 @@ type EditImageParams struct {
 
 // AsyncTaskResponse implements core.TaskResponse for async task polling.
 type AsyncTaskResponse struct {
+	core.TaskBillingFacts
 	ID     string     `json:"id"`
 	Status TaskStatus `json:"status"`
 	Error  string     `json:"error,omitempty"`

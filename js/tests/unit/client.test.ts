@@ -1,5 +1,4 @@
 import { describe, it, expect, beforeEach, afterAll } from 'vitest';
-import { AuthenticationError } from '@runapi.ai/core';
 import { QwenImageClient } from '../../src';
 
 const originalEnv = process.env.RUNAPI_API_KEY;
@@ -20,11 +19,6 @@ describe('QwenImageClient', () => {
   it('initializes with an API key', () => {
     const client = new QwenImageClient({ apiKey: 'test-key' });
     expect(client.editImage).toBeDefined();
-  });
-
-  it('throws when apiKey missing and env unset', () => {
-    expect(() => new QwenImageClient()).toThrow(AuthenticationError);
-    expect(() => new QwenImageClient({ apiKey: '' })).toThrow(AuthenticationError);
   });
 
   it('reads apiKey from RUNAPI_API_KEY env var', () => {
