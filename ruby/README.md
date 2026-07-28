@@ -2,7 +2,7 @@
 
 The Qwen Image Ruby SDK is the language-specific package for Qwen Image on RunAPI. Use this package for image generation, image editing, and creative production workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Ruby.
 
-This README is the Ruby package guide inside the public `qwen-image-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/qwen-image; for API reference, use https://runapi.ai/docs#qwen-image; for SDK docs, use https://runapi.ai/docs#sdk-qwen-image.
+This README is the Ruby package guide inside the public `qwen-image-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/qwen-image; for API reference, use https://runapi.ai/docs/api/qwen-image/text-to-image; for SDK docs, use https://runapi.ai/docs/resources/sdks.
 
 ## Install
 
@@ -35,8 +35,8 @@ Use Ruby keyword arguments and the `RunApi::QwenImage` error classes when buildi
 ## Links
 
 - Model page: https://runapi.ai/models/qwen-image
-- SDK docs: https://runapi.ai/docs#sdk-qwen-image
-- Product docs: https://runapi.ai/docs#qwen-image
+- SDK docs: https://runapi.ai/docs/resources/sdks
+- Product docs: https://runapi.ai/docs/api/qwen-image/text-to-image
 - Pricing and rate limits: https://runapi.ai/models/qwen-image/text-to-image
 - Provider comparison: https://runapi.ai/providers/alibaba
 - Full catalog: https://runapi.ai/models

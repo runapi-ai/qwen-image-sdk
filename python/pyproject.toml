@@ -15,7 +15,7 @@ dependencies = ["runapi-core>=0.3.1"]
 
 [project.urls]
 Homepage = "https://runapi.ai/models/qwen-image"
-Documentation = "https://runapi.ai/docs#sdk-qwen-image"
+Documentation = "https://runapi.ai/docs/resources/sdks"
 Source = "https://github.com/runapi-ai/qwen-image-sdk"
 Issues = "https://github.com/runapi-ai/qwen-image-sdk/issues"
 Changelog = "https://github.com/runapi-ai/qwen-image-sdk/blob/main/CHANGELOG.md"

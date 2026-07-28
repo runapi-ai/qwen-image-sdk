@@ -59,8 +59,8 @@ const result = await client.textToImage.run({
 ## Routing
 
 - Model page: https://runapi.ai/models/qwen-image
-- Product docs: https://runapi.ai/docs#qwen-image
-- SDK docs: https://runapi.ai/docs#sdk-qwen-image
+- Product docs: https://runapi.ai/docs/api/qwen-image/text-to-image
+- SDK docs: https://runapi.ai/docs/resources/sdks
 - SDK repository: https://github.com/runapi-ai/qwen-image-sdk
 - Pricing and rate limits: https://runapi.ai/models/qwen-image/text-to-image
 - Provider comparison: https://runapi.ai/providers/alibaba
