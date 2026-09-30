@@ -22,31 +22,6 @@ RSpec.describe RunApi::QwenImage::Resources::RemixImage do
       expect(result).to be_a(RunApi::QwenImage::Types::RemixImageResponse)
       expect(result.id).to eq("task-1")
     end
-
-    it "raises ValidationError when model is missing" do
-      expect { remix_image.create(prompt: "test", source_image_url: "https://x.com/a.jpg") }
-        .to raise_error(RunApi::Core::ValidationError, /model must be one of/)
-    end
-
-    it "raises ValidationError when prompt is missing" do
-      expect { remix_image.create(model: "qwen-image-remix-image", source_image_url: "https://x.com/a.jpg") }
-        .to raise_error(RunApi::Core::ValidationError, /prompt is required/)
-    end
-
-    it "raises ValidationError when source_image_url is missing" do
-      expect { remix_image.create(model: "qwen-image-remix-image", prompt: "test") }
-        .to raise_error(RunApi::Core::ValidationError, /source_image_url is required/)
-    end
-
-    it "raises ValidationError for invalid model" do
-      expect { remix_image.create(model: "qwen-image-edit-image", prompt: "test", source_image_url: "https://x.com/a.jpg") }
-        .to raise_error(RunApi::Core::ValidationError, /model must be one of/)
-    end
-
-    it "raises ValidationError for invalid output_format" do
-      expect { remix_image.create(model: "qwen-image-remix-image", prompt: "test", source_image_url: "https://x.com/a.jpg", output_format: "gif") }
-        .to raise_error(RunApi::Core::ValidationError, /output_format must be one of/)
-    end
   end
 
   describe "#get" do

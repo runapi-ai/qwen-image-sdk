@@ -15,7 +15,7 @@ public final class TextToImageParams {
 
   private TextToImageParams(Builder builder) {
     this.model = builder.model;
-    this.prompt = QwenimageParamUtils.requireNonBlank(builder.prompt, "prompt");
+    this.prompt = builder.prompt;
     this.aspectRatio = builder.aspectRatio;
     this.seed = builder.seed;
     this.outputFormat = builder.outputFormat;
@@ -65,20 +65,20 @@ public final class TextToImageParams {
 
     /** Sets the model slug using a string value. */
     public Builder model(String value) {
-      this.model = QwenimageParamUtils.requireNonBlankTrim(value, "model");
+      this.model = value;
       return this;
     }
 
 
     /** Sets the text prompt. */
     public Builder prompt(String value) {
-      this.prompt = QwenimageParamUtils.requireNonBlank(value, "prompt");
+      this.prompt = value;
       return this;
     }
 
     /** Sets the output aspect ratio. */
     public Builder aspectRatio(String value) {
-      this.aspectRatio = QwenimageParamUtils.requireNonBlank(value, "aspectRatio");
+      this.aspectRatio = value;
       return this;
     }
 
@@ -90,13 +90,13 @@ public final class TextToImageParams {
 
     /** Sets the output format. */
     public Builder outputFormat(String value) {
-      this.outputFormat = QwenimageParamUtils.requireNonBlank(value, "outputFormat");
+      this.outputFormat = value;
       return this;
     }
 
     /** Sets the webhook URL for task completion notifications. */
     public Builder callbackUrl(String value) {
-      this.callbackUrl = QwenimageParamUtils.requireNonBlank(value, "callbackUrl");
+      this.callbackUrl = value;
       return this;
     }
 

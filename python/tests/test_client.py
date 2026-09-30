@@ -1,7 +1,7 @@
 import pytest
 
 from runapi.core import config
-from runapi.core.errors import AuthenticationError, ValidationError
+from runapi.core.errors import AuthenticationError
 from runapi.qwen_image import QwenImageClient
 from runapi.qwen_image.resources.edit_image import EditImage
 from runapi.qwen_image.resources.remix_image import RemixImage
@@ -128,47 +128,3 @@ def test_run_narrows_completed_type():
     result = client.text_to_image.run(model="qwen-image-text-to-image", prompt="a serene lake")
     assert isinstance(result, CompletedTextToImageResponse)
     assert result.images[0].url == "https://x/y.png"
-
-
-# --- validation -----------------------------------------------------------
-
-
-def test_rejects_unknown_model():
-    client = QwenImageClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="model must be one of"):
-        client.text_to_image.create(model="nope", prompt="hi there")
-
-
-def test_requires_prompt():
-    client = QwenImageClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="prompt is required"):
-        client.text_to_image.create(model="qwen-image-text-to-image")
-
-
-def test_text_to_image_rejects_bad_aspect_ratio():
-    client = QwenImageClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="aspect_ratio"):
-        client.text_to_image.create(model="qwen-image-text-to-image", prompt="hi there", aspect_ratio="21:9")
-
-
-def test_edit_requires_source_image_url():
-    client = QwenImageClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="source_image_url is required"):
-        client.edit_image.create(model="qwen-image-edit-image", prompt="make it pop")
-
-
-def test_remix_requires_source_image_url():
-    client = QwenImageClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="source_image_url is required"):
-        client.remix_image.create(model="qwen-image-remix-image", prompt="remix this")
-
-
-def test_rejects_bad_output_format():
-    client = QwenImageClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="output_format"):
-        client.remix_image.create(
-            model="qwen-image-remix-image",
-            prompt="remix this",
-            source_image_url="https://x/in.jpg",
-            output_format="webp",
-        )
